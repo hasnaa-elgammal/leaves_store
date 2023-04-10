@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('contact_messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
+            $table->string('email');
             $table->string('subject');
             $table->text('message');
             $table->timestamps();

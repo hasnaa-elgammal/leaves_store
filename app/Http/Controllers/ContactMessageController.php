@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ContactMessage;
 use Illuminate\Http\Request;
+use App\Models\ContactMessage;
+use App\Http\Requests\ContactRequest;
 
 class ContactMessageController extends Controller
 {
@@ -33,9 +34,15 @@ class ContactMessageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        //
+        $message = ContactMessage::create([
+            "email"=> $request->email,
+            "subject"=> $request->subject,
+            "message"=> $request->message
+        ]);
+        // update to redirect after ui
+        return "done";
     }
 
     /**
