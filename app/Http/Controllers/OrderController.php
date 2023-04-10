@@ -100,7 +100,7 @@ class OrderController extends Controller
         //
     }
 
-    protected function calculateTotalPrice($user_id){
+    public function calculateTotalPrice($user_id){
         $items = CartItem::select("cart_items.id", "quantity", "price")
         ->join("products", "products.id", "=", "cart_items.product_id")
         ->where("user_id", Auth::id())->get();
