@@ -89,15 +89,11 @@ class OrderController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
+
+    public function ViewAllOrders($user_id){
+        $orders=Order::select("orders.total_price","orders.payment_type","orders.payment_status","orders.country","orders.city","orders.street")->where("orders.user_id", $user_id)->get();
+
+        return $orders;
     }
 
     public function calculateTotalPrice($user_id){
