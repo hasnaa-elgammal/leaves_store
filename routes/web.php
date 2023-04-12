@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\CategoryController as Category;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 
@@ -28,4 +29,8 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/orders/{user_id}', [OrderController::class, 'ViewAllOrders']);
 Route::get('users/profile',[UserController::class,'edit']);
 Route::put('users/profile/{user_id}',[UserController::class,'Update']);
+
+
+//categories
+Route::resource('categories', Category::class);
 
