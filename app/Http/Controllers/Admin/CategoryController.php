@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+
+
 
 class CategoryController extends Controller
 {
@@ -19,7 +22,7 @@ public function create()
     //return view('categories.create');
 }
 
-public function store(Request $request)
+public function store(CategoryRequest $request)
 {
     Category::create(
         [
@@ -37,7 +40,7 @@ public function show($id)
     //return view('categories.edit', compact('category'));
 }
 
-public function update(Request $request, $id)
+public function update(CategoryRequest $request, $id)
 {
     $data = Category::find($id);
     $data->update([
