@@ -35,6 +35,12 @@ Route::get('/orders/{user_id}', [OrderController::class, 'ViewAllOrders']);
 Route::get('users/profile',[UserController::class,'edit']);
 Route::put('users/profile/{user_id}',[UserController::class,'Update']);
 
+//products
+Route::resource('products', ProductController::class);
+
+//reviews
+Route::resource('reviews', ReviewController::class);
+
 
 //categories
 Route::resource('categories', Category::class);
