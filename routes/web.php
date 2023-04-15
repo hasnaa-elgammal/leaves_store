@@ -4,8 +4,13 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\CategoryController as Category;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\PlantController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\UserController as User;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +38,13 @@ Route::put('users/profile/{user_id}',[UserController::class,'Update']);
 
 //categories
 Route::resource('categories', Category::class);
+//plants
+Route::resource('plants', PlantController::class);
+//orders
+Route::resource('orders', AdminOrderController::class);
+//users
+Route::resource('users', User::class);
+//dashboard
+
+
 
