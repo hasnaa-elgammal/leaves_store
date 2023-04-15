@@ -12,9 +12,19 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // retrieve all plants whatever their category is
     public function index()
     {
-        //
+        $products = Product::all();
+        return $products;
+    }
+
+    // retrieve 6 plants home screen
+    public function HomeScreenProducts()
+    {
+        $products = Product::all()->random(6);
+        return $products;
     }
 
     /**
@@ -44,9 +54,21 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+
+    // retrieve plants details
+    public function show($id)
     {
-        //
+        $products = Product::findOrFail($id)
+        ->join('categories', 'products.category_id', '=', 'categories.id')
+        ->leftJoin('reviews', 'reviews.product_id', '=', 'products.id')
+        ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
+        ->select('products.*', 'categories.name as c_name', 'reviews.*', 'users.first_name as f_name', 'users.last_name as l_name')
+        ->where('products.id', $id)
+        ->get();
+
+        return view('products', [
+            'products' => $products
+        ]);
     }
 
     /**
