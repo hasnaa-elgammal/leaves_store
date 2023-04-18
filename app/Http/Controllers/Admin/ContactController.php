@@ -11,6 +11,6 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = ContactMessage::all();
-        //return view('contacts.index', compact('contacts'));
+      return view('admin.contacts.contact', compact('contacts'));
     }
 }

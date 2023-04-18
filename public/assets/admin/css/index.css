@@ -1,0 +1,260 @@
+body{
+    overflow-x: hidden;
+}
+.sidebar{
+    background-color: #E7F1EE;
+    color: #1B5E20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: 100vh;
+    padding-top: 20px;
+}
+.sidebar .grass-img{
+    position: absolute;
+    bottom: 0;
+}
+.sidebar .logo{
+    margin-bottom: 10px;
+}
+.sidebar a{
+    color: #1B5E20;
+    margin: 10px;
+}
+.active::before{
+    content: " ";
+    width: 160px;
+    background-color: #fff;
+    border-radius: 58px;
+    position: absolute;
+    z-index: -1;
+    border: 1px solid #ccc;
+    padding: 30px;
+    
+    
+}
+.sidebar a:hover{
+    color: #fa8f2f
+}
+.sidebar a:active{
+    color: #fa8f2f
+}
+.active a:hover{
+    color: #1B5E20;
+}
+.menu-btn{
+    display: none;
+}
+.main-section{
+    position: relative;
+    left: 24.6%;
+    background-color: #F1F8F6;
+    color: #1B5E20;
+    padding: 35px 20px;
+}
+.notify-btn{
+    background-color: #fff;
+    padding: 5px 10px;
+    color: #1B5E20;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.notify-btn span {
+    background-color: #fa8f2f;
+}
+.current-date{
+    color: #707070;
+    font-size: 14px;
+    letter-spacing: 1.3px;
+}
+.dashboard{
+    background-color: #fff;
+    border: 1px solid #707070;
+    border-radius: 25px;
+    margin-top: 30px;
+}
+.dash-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fa8f2f;
+    padding-left: 20px;
+}
+.dash-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+    padding: 0 20px;
+}
+.dash-card{
+    border: 1px solid #707070;
+    border-radius: 25px;
+    padding: 20px ;
+    width: 31%;
+    text-align: center;
+}
+.dash-card img{
+    margin-bottom: 15px;
+}
+.revenue h3{
+    color: #fa8f2f;
+    margin: 25px 0;
+}
+#myChart{
+    height: 320px !important;
+    background-color: #E7F1EE;
+    border: 1px solid #707070;
+    border-radius: 10px;
+}
+.right-column{
+    padding: 0;
+    background-color: #C9DCBD;
+    text-align: center;
+    position: fixed;
+    right: 0;
+}
+.right-img{
+    width: 100%;
+}
+.right-img img{
+    width: 100%;
+}
+.add-new-btn{
+    color: #fff;
+    background-color: #fa8f2f;
+    border: 1px solid #fa8f2f;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: 600;
+    margin: 0 5px;
+}
+.plant{
+    background-color: #173136;
+    color: #fff;
+    padding: 30px 15px;
+    margin-top: 25px;
+    height: 100vh;
+}
+.plant-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.plant-heading p{
+    margin: 0;
+}
+.plant-heading span{
+    color: #fa8f2f;
+    font-size: 14px;
+    cursor: pointer;
+}
+.plant-items{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.plant-card{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.plant-card p{
+    margin: 0;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.price{
+    color: #c1c1c1;
+    
+}
+
+
+
+
+
+@media (max-width:992px) {
+    .sidebar{
+        position: relative;
+        height: auto;
+    }
+    .logo{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        align-items: center;
+        width: 100%;
+    }
+    .menu-btn{
+        display: block;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #1B5E20;
+        font-size: 18px;
+    }
+    .grass-img{
+        display: none
+    }
+    .sidebar a{
+        position: relative;
+    }
+    .active::before{
+        z-index: 0;
+    }
+    .main-section{
+        position: relative;
+        left: 0;
+        padding:  30px;
+    }
+    .right-column{
+        display: none;
+    }
+    
+    #myChart{
+        height: auto !important;
+    }
+}
+.notify{
+    padding: 10px ;
+    border-bottom: 1px solid #707070;
+}
+.notify p{
+
+    padding: 10px 0;
+    margin: 0;
+}
+.model-header{
+    background-color: azure !important;
+}
+
+@media (max-width:600px) {
+    .dash-items{
+        flex-wrap: wrap;
+    }
+    .dash-card{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

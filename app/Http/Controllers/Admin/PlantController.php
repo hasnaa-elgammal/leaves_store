@@ -12,7 +12,7 @@ class PlantController extends Controller
     public function index()
     {
         $products = Product::all();
-        //return view('products.index', compact('products'));
+       return view('admin.plants.plants', compact('products'));
     }
 
     public function create()
@@ -43,8 +43,8 @@ class PlantController extends Controller
     public function show($id)
     {
         $Product = Product::find($id);
-        // return($Product);
-        //return view('products.edit', compact('Product'));
+       
+        return view('admin.plants.delete-plant', compact('Product'));
     }
 
     public function update(PlantRequest $request, $id)

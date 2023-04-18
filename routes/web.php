@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\CategoryController as Category;
+use App\Http\Controllers\Admin\ContactController as Contact;
+
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\PlantController;
 use App\Http\Controllers\OrderController;
@@ -44,7 +46,14 @@ Route::resource('plants', PlantController::class);
 Route::resource('orders', AdminOrderController::class);
 //users
 Route::resource('users', User::class);
+//contact
+Route::resource('contacts', Contact::class);
 //dashboard
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard.index');
+})->name('dashboard');
+
 
 
 
