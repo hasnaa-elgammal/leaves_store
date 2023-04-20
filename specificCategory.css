@@ -1,0 +1,93 @@
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 30px;
+    justify-content: space-between;
+}
+.plant-card{
+    position: relative;
+    display: flex;
+    background-color: #C8E6C9;
+    padding: 20px 0px 0 0;
+    border-radius: 25px;
+    width: 350px;
+    height: 140px;
+    margin: 36px 15px 36px 0;
+}
+.card-info{
+    position: relative;
+    left: 42%;
+}
+.plant-card .plant-image{
+    position: absolute;
+    left: -12px;
+
+}
+.plant-card .plant-title{
+    color: #1B5E20;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.plant-card .icons{
+    color: #1B5E20;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.plant-card .price{
+    color: #1B5E20;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.btns{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 190px;
+    bottom: -20px;
+}
+.plant-card .add-btn{
+    background-color: #66BB6A;
+    color: #fff;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-around;
+    outline: none;
+    border: 1px solid #66BB6A;
+}
+.plant-card .add-btn:hover{
+    background-color: #1B5E20;
+    cursor: pointer;
+}
+.plant-card .like-btn{
+    border: 2px solid #1B5E20;
+    color: #1B5E20;
+    border-radius: 50%;
+    padding: 0 5px;
+    font-size: 26px;
+    background-color: #C8E6C9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.plant-card .like-btn:hover{
+    background-color:#fa8f2f;
+    color: #fff;
+    border-color: #fff;
+    cursor: pointer;
+}
+.plant-card .like-btn i{
+    position: relative;
+    top: 1px;
+}
+
+
+@media (max-width:790px){
+    .products{
+        justify-content: center;
+    }
+}
