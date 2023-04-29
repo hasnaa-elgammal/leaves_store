@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PlantRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -11,40 +12,46 @@ class PlantController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-       return view('admin.plants.plants', compact('products'));
+        $plants = Product::all();
+       return view('admin.plants.plants', compact('plants'));
     }
 
     public function create()
-    {
-        //return view('products.create');
+    {   $categories = Category::all();
+        return view('admin.plants.add-plant', compact('categories'));
     }
 
     public function store(PlantRequest $request)
     {
+        $file_name = time() . '.' . request()->uploadfile->getClientOriginalExtension();
+        request()->uploadfile->move(public_path('images/plants'), $file_name);
+        $plant = new Product();
+        $plant->name = $request->name;
+        $plant->image = $file_name;
+        $plant->stock = $request->stock;
+        $plant->price = $request->price;
+        $plant->category_id = $request->category_id;
+       
 
-        $file_name = time() . '.' . request()->image->getClientOriginalExtension();
-        request()->image->move(public_path('images/plants'), $file_name);
-        Product::create(
-            [
-                'name' => $request->name,
-                'category_id' => $request->category_id,
-                'image' => $file_name,
-                'description' => $request->description,
-                'price' => $request->price,
-                'care_instructions' => $request->care_instructions
-
-
-            ]
-        );
-        //return redirect()->route('products.index')->with('success', 'Product created successfully');
+        $plant->save();
+       
+        return redirect()->route('plants.index')->with('success', 'Plant created successfully');
     }
 
     public function show($id)
     {
-        $Product = Product::find($id);
+        $plant = Product::find($id);
        
-        return view('admin.plants.delete-plant', compact('Product'));
+        return view('admin.plants.delete-plant', compact('plant'));
+    }
+    public function edit($id)
+    {
+        $categories = Category::all();
+        $plant = Product::findOrFail($id);
+        return view('admin.plants.edit-plant', [
+            'plant' => $plant,
+            'categories'=>$categories
+        ]);
     }
 
     public function update(PlantRequest $request, $id)
@@ -53,23 +60,20 @@ class PlantController extends Controller
         $data = Product::find($id);
         $file_name = "";
 
-        if ($request->hasFile('image')) {
-            $file_name = time() . '.' . request()->image->getClientOriginalExtension();
-            request()->image->move(public_path('images/plants'), $file_name);
-            $data->update([
-                'image' => $file_name,
-            ]);
+        if ($request->hasFile('uploadfile')) {
+            $file_name = time() . '.' . request()->uploadfile->getClientOriginalExtension();
+            request()->uploadfile->move(public_path('images/plants'), $file_name);
+            $data->image = $file_name;
         }
-        $data->update([
-            'name' => $request->name,
-            'category_id' => $request->category_id,
-            'description' => $request->description,
-            'price' => $request->price,
-            'care_instructions' => $request->care_instructions
-        ]);
+        $data->name = $request->name;
+        $data->category_id = $request->category_id;
+        $data->price = $request->price;
+        $data->stock = $request->stock;
+       
+        $data->save();
 
 
-        //return redirect()->route('products.index')->with('success', 'Product updated successfully');
+        return redirect()->route('plants.index')->with('success', 'Plant updated successfully');
 
 
 
@@ -79,6 +83,6 @@ class PlantController extends Controller
     public function destroy($id)
     {
         Product::destroy($id);
-        // return redirect()->route('products.index')->with('success', 'Product deleted successfully');
+         return redirect()->route('plants.index')->with('success', 'Plant deleted successfully');
     }
 }

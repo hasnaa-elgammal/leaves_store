@@ -45,7 +45,7 @@
                             Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contacts') }}"><i
+                        <a class="nav-link" href="{{ route('contacts.index') }}"><i
                                 class="fa-sharp fa-solid fa-messages-question"></i>&nbsp;
                             Contact</a>
                     </li>

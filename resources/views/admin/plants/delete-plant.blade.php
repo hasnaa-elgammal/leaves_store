@@ -13,26 +13,29 @@
                     <div class="current-date">
                         
                         <span>Plant Name : </span>
-                        <span>************</span>
+                        <span>{{$plant->name}}</span>
                         
                     </div>
                     <div class="current-date">
                         
                         <span>Category Name : </span>
-                        <span>************</span>
+                        <span>{{$plant->category->name}}</span>
                         
                     </div>
                     <div class="current-date">
                         
                         <span>Price : </span>
-                        <span>250</span>
+                        <span>{{$plant->price}}</span>
                         
                     </div>
                     
-                    <form>
+                    <form action="{{ route('plants.destroy', $plant->id) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('DELETE')
                         <h4>Are you sure to delete this Plant ?</h4>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                             <label class="form-check-label" for="flexCheckDefault">
                               I am aware of the consequences of deleteing this plant.
                             </label>

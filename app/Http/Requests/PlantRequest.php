@@ -13,7 +13,7 @@ class PlantRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,10 +26,11 @@ class PlantRequest extends FormRequest
         return [
             'name'=> 'required',
             'category_id'=> 'required',
-            'image' => 'required|mimes:jpeg,png,jpg|max:2048',
-            'description' => 'required',
+           // 'uploadfile' => 'required|mimes:jpeg,png,jpg|max:2048',
+            // 'description' => 'required',
+            'stock' => 'required',
             'price'=> 'required',
-            'care_instructions'=> 'required',
+            // 'care_instructions'=> 'required',
         ];
     }
 
@@ -38,10 +39,11 @@ class PlantRequest extends FormRequest
         return [
             "name.required"=>"Please enter the Plant name",
             'category_id.required'=>"Please select the category",
-            'image.required'=>"Please select the image",
-            'description.required'=>"Please enter the description",
+           // 'uploadfile.required'=>"Please select the image",
+            // 'description.required'=>"Please enter the description",
             'price' => 'Please enter the price',
-            'care_instructions.required'=>"Please enter the care instructions",
+            'stock' => 'Please enter the number of plants in stock',
+            // 'care_instructions.required'=>"Please enter the care instructions",
            
         ];
     }

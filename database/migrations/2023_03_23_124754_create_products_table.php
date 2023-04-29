@@ -19,9 +19,10 @@ return new class extends Migration
             $table->string('name');
             $table->foreignIdFor(Category::class);
             $table->string('image');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->integer('price');
-            $table->text('care_instructions');
+            $table->integer('stock');
+            $table->text('care_instructions')->nullable();
             $table->timestamps();
         });
     }

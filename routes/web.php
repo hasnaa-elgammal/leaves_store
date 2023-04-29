@@ -25,9 +25,9 @@ use App\Http\Controllers\Admin\UserController as User;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -38,7 +38,7 @@ Route::get('users/profile',[UserController::class,'edit']);
 Route::put('users/profile/{user_id}',[UserController::class,'Update']);
 
 //products
-Route::resource('products', ProductController::class);
+// Route::resource('products', ProductController::class);
 
 //reviews
 Route::resource('reviews', ReviewController::class);
@@ -56,7 +56,7 @@ Route::resource('users', User::class);
 Route::resource('contacts', Contact::class);
 //dashboard
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('admin.dashboard.index');
 })->name('dashboard');
 

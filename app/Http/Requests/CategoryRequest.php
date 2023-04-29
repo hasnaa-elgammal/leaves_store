@@ -13,7 +13,7 @@ class CategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,8 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name'=> 'required',
-            'num_of_types'=> 'required',
+            'num_of_plants'=> 'required',
+            // 'uploadfile'=>'required|mimes:jpeg,png,jpg'
         ];
     }
 
@@ -33,7 +34,8 @@ class CategoryRequest extends FormRequest
     {
         return [
             "name.required"=>"Please enter the category name",
-            "num_of_types.required"=>"Please enter the number of plants",
+            "num_of_plants.required"=>"Please enter the number of plants",
+            // "uploadfile.required"=>"Please select an image ",
            
         ];
     }
