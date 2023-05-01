@@ -80,4 +80,6 @@ class CategoryController extends Controller
         Category::destroy($id);
         return redirect()->route('categories.index')->with('success', 'Category deleted successfully');
     }
+
+
 }

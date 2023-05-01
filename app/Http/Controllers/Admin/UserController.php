@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function create()
     {
-        //return view('Users.create');
+        return view('admin.users.add-user');
     }
 
     public function store(UserRequest $request)
@@ -35,20 +35,38 @@ class UserController extends Controller
 
             ]
         );
-        //return redirect()->route('users.index')->with('success', 'User created successfully');
+        return redirect()->route('users.index')->with('success', 'User created successfully');
     }
 
     public function show($id)
     {
         $user = User::find($id);
       
-        //return view('users.edit', compact('user'));
+        return view('admin.users.delete-user', compact('user'));
+    }
+    public function edit($id)
+    {
+        $user = User::find($id);
+      
+        return view('admin.users.edit-user', compact('user'));
     }
 
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $request->validate([
+            'first_name'=> 'required',
+            'last_name'=> 'required',
+            'mobile_number'=> 'required',
+            'email' => 'required|email',
+        ]);
         $data = User::find($id);
-       // update if the request has changed or not ************************
+        if($request->password)
+        {
+            $data->update([
+                'password' => Hash::make($request['password']),
+            ]);
+            
+        }
         $data->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -58,7 +76,7 @@ class UserController extends Controller
         ]);
 
 
-        //return redirect()->route('users.index')->with('success', 'User updated successfully');
+        return redirect()->route('users.index')->with('success', 'User updated successfully');
 
 
 
@@ -68,6 +86,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        // return redirect()->route('users.index')->with('success', 'User deleted successfully');
+        return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 }
