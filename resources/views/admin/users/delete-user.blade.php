@@ -13,25 +13,28 @@
                     <div class="current-date">
                         
                         <span>Username : </span>
-                        <span>************</span>
+                        <span>{{$user->first_name . " " . $user->last_name}}</span>
                         
                     </div>
                     <div class="current-date">
                         
                         <span>Email : </span>
-                        <span>*******@yahoo.com</span>
+                        <span> {{$user->email}}</span>
                         
                     </div>
                     <div class="current-date">
                         <span>Phone : </span>
-                        <span>0123456789</span>
+                        <span>{{$user->mobile_number}}</span>
                         
                         
                     </div>
-                    <form>
+                    <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('DELETE')
                         <h4>Are you sure to delete this User?</h4>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                             <label class="form-check-label" for="flexCheckDefault">
                               I am aware of the consequences of deleteing this user. 
                             </label>

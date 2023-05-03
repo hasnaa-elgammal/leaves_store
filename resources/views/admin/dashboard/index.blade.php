@@ -152,9 +152,9 @@
                 <div class="current-date">
                     <i class="fa-sharp fa-solid fa-calendar-days"></i>
                     <span id="day">&nbsp;Monday, </span>
-                    <span id="day-number">25</span>
-                    <span id="month">Feb</span>
-                    <span id="year">2023</span>
+                    <span id="day-number">{{now()->format('Y-m-d ')}}</span>
+                    <!-- <span id="month">Feb</span>
+                    <span id="year">2023</span> -->
                 </div>
                 <div class="dashboard">
                     <div class="dash-heading">
@@ -165,17 +165,17 @@
                         <div class="dash-card">
 
                             <img src="{{ asset('assets/admin/img/2-removebg-preview (1).png') }}" alt="revenue" />
-                            <h6>475 LE</h6>
+                            <h6>{{$total}}</h6>
                             <p><i class="fa-light fa-circle-info"></i> Total Revenue</p>
                         </div>
                         <div class="dash-card">
                             <img src="{{ asset('assets/admin/img/6-removebg-preview.png')}}" alt="orders" />
-                            <h6>50</h6>
+                            <h6>{{$totalOrders}}</h6>
                             <p><i class="fa-light fa-circle-info"></i> Total Orders</p>
                         </div>
                         <div class="dash-card">
                             <img src="{{ asset('assets/admin/img/8-removebg-preview.png')}}" alt="users" />
-                            <h6>200</h6>
+                            <h6>{{$totalUsers}}</h6>
                             <p><i class="fa-light fa-circle-info"></i> Total Users</p>
                         </div>
                     </div>
@@ -192,35 +192,25 @@
                     <img src="{{ asset('assets/admin/img/bg.png')}}" />
                 </div>
                 <div>
-                    <button class="add-new-btn" onclick="location.href='add-plant.html'">+ Add New Plant</button>
+                    <button class="add-new-btn" onclick="location.href='{{ route('plants.create') }}'">+ Add New Plant</button>
                 </div>
                 <div class="plant">
                     <div class="plant-heading">
                         <p>Plant List</p>
-                        <span onclick="location.href='plant-list.html'">See All</span>
+                        <span onclick="location.href='{{ route('plants.index') }}'">See All</span>
                     </div>
                     <div class="plant-items">
+                        @foreach($plants as $plant)
                         <div class="plant-card">
-                            <img src="{{ asset('assets/admin/img/Mask Group 12.png')}}" width="75" />
+                            <img src="images/plants/{{$plant->image}}" width="75" />
                             <div>
-                                <p>Hello World</p>
-                                <p class="price">25 LE</p>
+                                <p>{{$plant->name}}</p>
+                                <p class="price">{{$plant->price . " LE"}}</p>
                             </div>
                         </div>
-                        <div class="plant-card">
-                            <img src="{{ asset('assets/admin/img/Mask Group 12.png')}}" width="75" />
-                            <div>
-                                <p>Hello World</p>
-                                <p class="price">25 LE</p>
-                            </div>
-                        </div>
-                        <div class="plant-card">
-                            <img src="{{ asset('assets/admin/img/Mask Group 12.png')}}" width="75" />
-                            <div>
-                                <p>Hello World</p>
-                                <p class="price">25 LE</p>
-                            </div>
-                        </div>
+                        @endforeach
+                     
+                       
                     </div>
                 </div>
             </div>

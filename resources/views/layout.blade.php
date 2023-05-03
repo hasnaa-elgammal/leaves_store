@@ -74,9 +74,9 @@
                 <div class="current-date">
                     <i class="fa-sharp fa-solid fa-calendar-days"></i>
                     <span id="day">&nbsp;Monday, </span>
-                    <span id="day-number">25</span>
-                    <span id="month">Feb</span>
-                    <span id="year">2023</span>
+                    <span id="day-number">{{now()->format('Y-m-d ')}}</span>
+                    <!-- <span id="month">Feb</span>
+                    <span id="year">2023</span> -->
                 </div>
                 @yield('content')
                 <div class="col-2 right-column">

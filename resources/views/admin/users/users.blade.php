@@ -6,6 +6,13 @@
  
 
 @section('content')
+@if(session()->has('success'))
+<div class="alert alert-success alert-dismissible" style="margin:10px">
+  {{ session()->get('success') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+</div>
+@endif
                 <div class="dashboard">
                     <div class="dash-heading">
                         <h3>Users</h3>
@@ -18,7 +25,7 @@
                         <span >2023, </span>
                         <span >21:15</span>
                     </div>
-                    <button class="add-btn" onclick="location.href='add-user.html'">+ Add New User</button>
+                    <button class="add-btn" onclick="location.href='{{ route('users.create') }}'">+ Add New User</button>
                     <div class="table-tag">
                         <table class="table">
                             <thead>
@@ -32,62 +39,20 @@
                               </tr>
                             </thead>
                             <tbody>
+                            <?php $id = 0; ?>
+                            @foreach($users as $user)
                               <tr>
-                                <th scope="row">1</th>
-                                <td>*************</td>
-                                <td>*****@yahoo.com</td>
-                                <td>0123456789</td>
-                                <td><a href="edit-user.html" class="edit">Edit</a></td>
-                                <td><a href="delete-user.html" class="del">Delete</a></td>
+                                <th scope="row">{{ $id += 1 }}</th>
+                                <td>{{$user->first_name . " " . $user->last_name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->mobile_number}}</td>
+                                <td><a href="{{ route('users.edit', $user->id) }}" class="edit">Edit</a></td>
+                                <td><a href="{{ route('users.show', $user->id) }}" class="del">Delete</a></td>
                               </tr>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>*************</td>
-                                <td>*****@yahoo.com</td>
-                                <td>0123456789</td>
-                                <td><a href="edit-user.html" class="edit">Edit</a></td>
-                                <td><a href="delete-user.html" class="del">Delete</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>*************</td>
-                                <td>*****@yahoo.com</td>
-                                <td>0123456789</td>
-                                <td><a href="edit-user.html" class="edit">Edit</a></td>
-                                <td><a href="delete-user.html" class="del">Delete</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>*************</td>
-                                <td>*****@yahoo.com</td>
-                                <td>0123456789</td>
-                                <td><a href="edit-user.html" class="edit">Edit</a></td>
-                                <td><a href="delete-user.html" class="del">Delete</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>*************</td>
-                                <td>*****@yahoo.com</td>
-                                <td>0123456789</td>
-                                <td><a href="edit-user.html" class="edit">Edit</a></td>
-                                <td><a href="delete-user.html" class="del">Delete</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>*************</td>
-                                <td>*****@yahoo.com</td>
-                                <td>0123456789</td>
-                                <td><a href="edit-user.html" class="edit">Edit</a></td>
-                                <td><a href="delete-user.html" class="del">Delete</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>*************</td>
-                                <td>*****@yahoo.com</td>
-                                <td>0123456789</td>
-                                <td><a href="edit-user.html" class="edit">Edit</a></td>
-                                <td><a href="delete-user.html" class="del">Delete</a></td>
-                              </tr>
+                              @endforeach
+                              
+                              
+                              
                             </tbody>
                           </table>
                     </div>

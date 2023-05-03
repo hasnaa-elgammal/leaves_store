@@ -5,13 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
-
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\CategoryController as Category;
+use App\Http\Controllers\Admin\ContactController as Contact;
+use App\Http\Controllers\Admin\DashbaordController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\PlantController;
 use App\Http\Controllers\Admin\UserController as User;
-use App\Http\Controllers\Admin\ContactController as Contact;
-use App\Http\Controllers\Admin\CategoryController as Category;
-use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 
 
 
@@ -26,9 +26,9 @@ use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -39,7 +39,7 @@ Route::get('users/profile',[UserController::class,'edit']);
 Route::put('users/profile/{user_id}',[UserController::class,'Update']);
 
 //products
-Route::resource('products', ProductController::class);
+// Route::resource('products', ProductController::class);
 
 //reviews
 Route::resource('reviews', ReviewController::class);
@@ -57,9 +57,7 @@ Route::resource('users', User::class);
 Route::resource('contacts', Contact::class);
 //dashboard
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard.index');
-})->name('dashboard');
+Route::get('/', [DashbaordController::class, 'index'])->name('dashboard');
 
 
 

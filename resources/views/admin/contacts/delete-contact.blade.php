@@ -12,25 +12,25 @@
                     </div>
                     <div class="current-date">
                         
-                        <span>Username : </span>
-                        <span>************</span>
+                        <span>Email : </span>
+                        <span>{{$contact->email}}</span>
                         
                     </div>
                     <div class="current-date">
                         
                         <span>Message : </span>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</span>
+                        <span>{{$contact->message}}</span>
                         
                     </div>
-                    <div class="current-date">
-                        <span>Phone : </span>
-                        <span>0123456789</span>
-                        
-                    </div>
-                    <form>
+                    
+                    <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('DELETE')
+
                         <h4>Are you sure to delete this Contact?</h4>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="" required id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                               I am aware of the consequences of deleteing this contact. 
                             </label>
