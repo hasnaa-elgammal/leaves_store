@@ -41,7 +41,7 @@ img{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        min-height: 60vh;
+        min-height: 50vh;
         width: 550px;
         margin: 0 30px;
     }
@@ -75,9 +75,9 @@ img{
     cursor: pointer;
     font-style: normal;
     font-family: sans-serif;
-    width: 200px;
+    width: 170px;
     height: 50PX;
-   margin-left:170px;
+   margin-left:200px;
 
 
 }
