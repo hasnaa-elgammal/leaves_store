@@ -22,7 +22,7 @@
                         aria-expanded="false" aria-controls="collapseExample">
                         <i class="fa-sharp fa-solid fa-bars"></i>
                     </button>
-                    
+
                 </div>
                 <ul class="nav flex-column" id="collapseExample">
                     <li class="nav-item active">
@@ -45,7 +45,7 @@
                             Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contacts') }}"><i
+                        <a class="nav-link" href="{{ route('contacts.index') }}"><i
                                 class="fa-sharp fa-solid fa-messages-question"></i>&nbsp;
                             Contact</a>
                     </li>
@@ -144,7 +144,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                     </div>
                     <div class="dash-items">
                         <div class="dash-card">
-                        
+
                             <img src="{{ asset('assets/admin/img/2-removebg-preview (1).png') }}" alt="revenue" />
                             <h6>475 LE</h6>
                             <p><i class="fa-light fa-circle-info"></i> Total Revenue</p>
