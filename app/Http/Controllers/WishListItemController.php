@@ -10,15 +10,6 @@ use App\Http\Requests\WishListItemRequest;
 
 class WishListItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     public function userWishListItems()
     {
@@ -30,22 +21,6 @@ class WishListItemController extends Controller
         return $items;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(WishListItemRequest $request)
     {
         $item = WishListItem::create([
@@ -56,46 +31,6 @@ class WishListItemController extends Controller
         return "done";
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\WishListItem  $wishListItem
-     * @return \Illuminate\Http\Response
-     */
-    public function show(WishListItem $wishListItem)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\WishListItem  $wishListItem
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(WishListItem $wishListItem)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\WishListItem  $wishListItem
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, WishListItem $wishListItem)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\WishListItem  $wishListItem
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(int $id)
     {
         WishListItem::destroy($id);

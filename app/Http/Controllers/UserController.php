@@ -12,10 +12,7 @@ class UserController extends Controller
 {
     public function edit()
     {
-        $u=User::all();
-        return response()->json($u,200);
-
-        // return view('Users.edit')->with('user',auth()->user());
+        return view('customer.edit_profile')->with('user',auth()->user());
     }
     public function Update(UpdateProfileRequest $request,$user_id)
     {

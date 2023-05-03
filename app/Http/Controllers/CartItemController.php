@@ -9,16 +9,6 @@ use App\Http\Requests\CartItemRequest;
 
 class CartItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     public function userCartItems(){
         $items = CartItem::select("cart_items.id","products.id", "name", "image", "quantity", "price")
         ->join("products", "products.id", "=", "cart_items.product_id")
@@ -26,16 +16,6 @@ class CartItemController extends Controller
 
         //will be updated to redirect
         return $items;
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -55,16 +35,6 @@ class CartItemController extends Controller
         return "done";
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\CartItem  $cartItem
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CartItem $cartItem)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

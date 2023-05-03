@@ -3,17 +3,15 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\Admin\CategoryController as Category;
-use App\Http\Controllers\Admin\ContactController as Contact;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryContoller;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\DashbaordController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
-use App\Http\Controllers\Admin\PlantController;
-use App\Http\Controllers\Admin\UserController as User;
-
-
+use App\Http\Controllers\Admin\PlantController as AdminPlantController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,39 +24,26 @@ use App\Http\Controllers\Admin\UserController as User;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/orders/{user_id}', [OrderController::class, 'ViewAllOrders']);
-Route::get('users/profile',[UserController::class,'edit']);
-Route::put('users/profile/{user_id}',[UserController::class,'Update']);
-
-//products
-// Route::resource('products', ProductController::class);
-
-//reviews
-Route::resource('reviews', ReviewController::class);
+Route::get('/categories/{id}', [CategoryController::class, 'show']);
+Route::get('/plants', [ProductController::class, 'index']);
+Route::get('/plants/{id}', [ProductController::class, 'show']);
+Route::get('/profile', [UserController::class, 'edit']);
 
 
-//categories
-Route::resource('categories', Category::class);
-//plants
-Route::resource('plants', PlantController::class);
-//orders
-Route::resource('orders', AdminOrderController::class);
-//users
-Route::resource('users', User::class);
-//contact
-Route::resource('contacts', Contact::class);
-//dashboard
-
-Route::get('/', [DashbaordController::class, 'index'])->name('dashboard');
-
+Route::prefix('admin')->group(function () {
+    Route::get('/', [DashbaordController::class, 'index'])->name('dashboard');
+    Route::resource('/reviews', AdminReviewController::class);
+    Route::resource('/categories', AdminCategoryContoller::class);
+    Route::resource('/plants', AdminPlantController::class);
+    Route::resource('/orders', AdminOrderController::class);
+    Route::resource('/users', AdminUserController::class);
+    Route::resource('/contacts', AdminContactController::class);
+});
 
 
 
