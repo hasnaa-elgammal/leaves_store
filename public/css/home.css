@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 .navbar {
     background: var(--unnamed-color-fcebdf) 0% 0% no-repeat padding-box;
     background: #FCEBDF 0% 0% no-repeat padding-box;
     opacity: 1;
+    height: 80px;
+    
   
    
 }
@@ -20,44 +24,42 @@ img{
 }
 
 #home{
-    top: 0px;
+top: 0px;
 left: 0px;
-width: 146px;
-height: 53px;
-/* UI Properties */
-font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) 40px/53px var(--unnamed-font-family-product-sans);
-letter-spacing: var(--unnamed-character-spacing-0);
-color: var(--unnamed-color-1b5e20);
+font-weight: bold;
+font-size: 25px;
+font-family: sans-serif;
 text-align: left;
-font: normal normal bold 40px/53px Product Sans;
-letter-spacing: 0px;
 color: #1B5E20;
 }
 
 .nav-link{
    
-/* UI Properties */
-font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 40px/53px var(--unnamed-font-family-product-sans);
-letter-spacing: var(--unnamed-character-spacing-0);
-color: var(--unnamed-color-1b5e20);
+ font-family: sans-serif;
+ font-size: 25px;
 text-align: left;
-font: normal normal normal 40px/53px Product Sans;
-letter-spacing: 0px;
 color: #1B5E20;
 }
 
+.nav-link:hover , .nav-link:active{
+  color: #1B5E20;
+  font-weight: bold;
+}
+
+
+i:hover,  i:active  {
+  color: #1B5E20;
+  font-weight: bold;
+
+}
 
 
 button{
- top: 53px;
-left: 1300px;
-width: 260px;
+top: 53px;
+width: 200px;
 height: 48px;
-font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-36)/var(--unnamed-line-spacing-48) var(--unnamed-font-family-product-sans);
-letter-spacing: var(--unnamed-character-spacing-1-8);
+font-family: sans-serif;
 text-align: left;
-font: normal normal normal 36px/48px Product Sans;
-letter-spacing: 1.8px;
 color: #FFFFFF;
 opacity: 1;
 margin-right: 20px;
@@ -65,35 +67,28 @@ margin-right: 20px;
 }
 
 #fist-container{
-    background-color: #FFFAF7;
+ 
+    background-color: #FFFAF6 ;
+   
    
 }
 
 
 #first-p{
-   margin-top: 50px;
-    /* UI Properties */
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-70)/var(--unnamed-line-spacing-94) var(--unnamed-font-family-product-sans);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-1b5e20);
+    margin-top: 50px;
     text-align: left;
-    font: normal normal  70px/94px Product Sans;
-    letter-spacing: 0px;
+    font-size: 35px;
+    font-family: sans-serif;
     color: #1B5E20;
 }
 
 #second-p{
-    top: 495px;
-left: 120px;
+   
 width: 743px;
-height: 201px;
-/* UI Properties */
-font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 50px/67px var(--unnamed-font-family-product-sans);
-letter-spacing: var(--unnamed-character-spacing-0);
-color: var(--unnamed-color-1b5e20);
-text-align: left;
-font: normal normal normal 50px/67px Product Sans;
-letter-spacing: 0px;
+height: 180px;
+font-size: 35px;
+font-family: sans-serif;
+
 color: #1B5E20;
 opacity: 1;
 }
@@ -114,18 +109,15 @@ opacity: 1;
     left: 120px;
     width: 356px;
     height: 98px;
-    /* UI Properties */
-    background: var(--unnamed-color-fa8f2f) 0% 0% no-repeat padding-box;
+   
     background: #FA8F2F 0% 0% no-repeat padding-box;
     box-shadow: -3px 3px 20px #00000029;
     border-radius: 71px;
     opacity: 1;
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 50px/67px var(--unnamed-font-family-product-sans);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-fffaf7);
-    text-align: center;
-    font: normal normal normal 50px/67px Product Sans;
-    letter-spacing: 0px;
+    font-size: 35px;
+     font-family: sans-serif;
+   
+   
     color: #FFFAF7;
     opacity: 1;
     
@@ -164,10 +156,11 @@ opacity: 1;
 
 .firstp{
     margin-top: 50px;
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) 259px/344px Stabillo;
-    letter-spacing: var(--unnamed-character-spacing-0);
+   font-family: cursive;
+   font-weight: bold;
+   font-size: 40px;
     text-align: center;
-    font: normal normal bold 100px/200px Stabillo;
+    font: normal normal bold 100px/200px ;
     letter-spacing: 0px;
     opacity: 1;
     color: #1B5E20;
@@ -210,25 +203,20 @@ span{
     padding-top: 20px;
     float: left;
     margin-left: -50px;
-    
-    /* UI Properties */
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 30px/40px var(--unnamed-font-family-product-sans);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-1b5e20);
-    text-align: left;
-    font: normal normal bold 30px/40px Product Sans;
-    letter-spacing: 0px;
+    font-family: sans-serif;
+    font-size: 25px;
+   
+   
     color: #1B5E20;
     opacity: 1;
 
   }
   .service-p{
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 30px/40px var(--unnamed-font-family-product-sans);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-1b5e20);
+    font-family: sans-serif;
+    font-size: 15px;
     text-align: left;
-    font: normal normal normal 25px/40px Product Sans;
-    letter-spacing: 0px;
+    
+    
     color: #1B5E20;
     opacity: 1;
 
@@ -374,11 +362,10 @@ span{
 
 .plant-p{
    
-        font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 30px/40px var(--unnamed-font-family-product-sans);
-        letter-spacing: var(--unnamed-character-spacing-0);
-        color: var(--unnamed-color-1b5e20);
+       
         text-align: left;
-        font: normal normal bold 25px/40px Product Sans;
+        font-family: sans-serif;
+        font-size: 30px;
         letter-spacing: 0px;
         color: #1B5E20;
         opacity: 1;
@@ -418,11 +405,8 @@ span{
       }
 
       .pragraph{
-        font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) 70px/400px Stabillo;
-        letter-spacing: var(--unnamed-character-spacing-0);
-        text-align: left;
-        font: normal normal bold 70px/100px Stabillo;
-        letter-spacing: 0px;
+        font-family: sans-serif;
+        font-size: 45px;
         opacity: 1;
         color: #1B5E20;
         margin-top: 150px;
@@ -434,9 +418,8 @@ span{
         left: 626px;
         width: 1096px;
         height: 134px;
-        font-size: 40px;
-        letter-spacing: var(--unnamed-character-spacing-0);
-        color: var(--unnamed-color-1b5e20);
+        font-size: 35px;
+        font-family: sans-serif;
         text-align: left;
         letter-spacing: 0px;
         color: #1B5E20;

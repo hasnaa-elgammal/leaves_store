@@ -2,6 +2,8 @@
     background: var(--unnamed-color-fcebdf) 0% 0% no-repeat padding-box;
     background: #FCEBDF 0% 0% no-repeat padding-box;
     opacity: 1;
+    height: 80px;
+    
   
    
 }
@@ -19,32 +21,34 @@ img{
    margin-top: 15px;
 }
 
+
 #home{
     top: 0px;
-left: 0px;
-width: 146px;
-height: 53px;
-/* UI Properties */
-font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) 40px/53px var(--unnamed-font-family-product-sans);
-letter-spacing: var(--unnamed-character-spacing-0);
-color: var(--unnamed-color-1b5e20);
-text-align: left;
-font: normal normal bold 40px/53px Product Sans;
-letter-spacing: 0px;
-color: #1B5E20;
-}
-
-.nav-link{
-   
-    /* UI Properties */
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 40px/53px var(--unnamed-font-family-product-sans);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-1b5e20);
+    left: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: sans-serif;
     text-align: left;
-    font: normal normal normal 40px/53px Product Sans;
-    letter-spacing: 0px;
     color: #1B5E20;
     }
+    
+    .nav-link{
+       
+     font-family: sans-serif;
+     font-size: 25px;
+    text-align: left;
+    color: #1B5E20;
+    }
+    
+    .nav-link:hover , .nav-link:active{
+      color: #1B5E20;
+      font-weight: bold;
+    }
+i:hover,  i:active  {
+  color: #1B5E20;
+  font-weight: bold;
+
+}    
 
     .right{
         background-color: #A5D6A7;
@@ -65,12 +69,13 @@ color: #1B5E20;
         }
 
         .firstp{
-            
-
-            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) 259px/344px Stabillo;
-            letter-spacing: var(--unnamed-character-spacing-0);
+            margin-top: 80px;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 50px;
+           
             text-align: left;
-            font: normal normal bold 100px/200px Stabillo;
+          
             letter-spacing: 0px;
             opacity: 1;
             color: #1B5E20;
@@ -88,13 +93,9 @@ color: #1B5E20;
             width: 1096px;
             height: 134px;
             font-size: 40px;
-            letter-spacing: var(--unnamed-character-spacing-0);
-            color: var(--unnamed-color-1b5e20);
-            text-align: left;
-            letter-spacing: 0px;
             color: #1B5E20;
-            opacity: 1;
-
+            font-family: sans-serif;
+           
         }
 
         #ss{
@@ -102,12 +103,12 @@ color: #1B5E20;
             left: 118px;
             width: 249px;
             height: 67px;
-            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) 30px/50px var(--unnamed-font-family-product-sans);
-            letter-spacing: var(--unnamed-character-spacing-0);
-            color: var(--unnamed-color-1b5e20);
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 50px;
+          
             text-align: left;
-            font: normal normal bold 50px/67px Product Sans;
-            letter-spacing: 0px;
+           
             color: #1B5E20;
         }
 

@@ -33,6 +33,9 @@ Route::get('/categories/{id}', [CategoryController::class, 'show']);
 Route::get('/plants', [ProductController::class, 'index']);
 Route::get('/plants/{id}', [ProductController::class, 'show']);
 Route::get('/profile', [UserController::class, 'edit']);
+Route::get('/thank-you', function () {
+    return view('customer.thank_you');
+});
 
 
 Route::prefix('admin')->group(function () {
