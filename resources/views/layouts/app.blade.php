@@ -48,12 +48,12 @@
                 @guest
                 <form class="d-flex">
                     @if (Route::has('register'))
-                    <a class="btn btn-success rounded-pill" href="{{ route('register') }}">Create Account</a>
+                    <button class="btn btn-success rounded-pill" href="{{ route('register') }}">Create Account</button>
                     @endif
 
                     @if (Route::has('login'))
-                    <a class="btn btn-outline-success rounded-pill" href="{{ route('login') }}"
-                        style="width: 150px;">Login</a>
+                    <button class="btn btn-outline-success rounded-pill" href="{{ route('login') }}"
+                        style="width: 150px;">Login</button>
                     @endif
                 </form>
                 @else
