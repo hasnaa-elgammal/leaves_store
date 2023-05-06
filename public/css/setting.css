@@ -1,64 +1,82 @@
 .navbar {
-    background: var(--unnamed-color-fcebdf) 0% 0% no-repeat padding-box;
-    background: white 0% 0% no-repeat padding-box;
-    opacity: 1;
-  
-   
+  background: var(--unnamed-color-fcebdf) 0% 0% no-repeat padding-box;
+  background: white 0% 0% no-repeat padding-box;
+  opacity: 1;
+
+
 }
 
-.navbar-brand{
-    top: 20px;
-    left: 40px;
-    width: 228px;
-    height: 110px;
-    opacity: 1;
+.navbar-brand {
+  top: 20px;
+  left: 40px;
+  width: 228px;
+  height: 110px;
+  opacity: 1;
 }
 
-img{
-   width: 150px;
-   margin-top: 15px;
+img {
+  width: 150px;
+  margin-top: 15px;
 }
 
 .leaf {
-    
-        width:100px;
-        height: 100px;
-        border-radius:50% 100% 100%;
-        background-color: #1B5E20;	
-        overflow: none;
-       
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50% 100% 100%;
+  background-color: #1B5E20;
+  overflow: none;
+
 }
 
-       .profile{
-       
-       
-        height: 70%;
-        width: 70%;
-        border-radius: 50%;
-       }
+.profile {
 
-       input{
-        
-            background-color:white ;
-            margin-top: 20px;
-            width: 50%;
-            height: 50px;
-            border-color: #4CAF50;
-            margin-right: 200px;
-            
-          }
 
-          ::placeholder{
-            color: #1B5E20 ;
-            font-weight: bold;
-            padding-left: 20px;
-          }
-    
-          input[type=submit] {
-            background-color:  #4CAF50;
-            color: white;
-            margin-top: 100px;
-           
-          }
-    
-       
+  height: 60%;
+  width: 60%;
+  /* border-radius: 50%; */
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 50vh;
+  width: 550px;
+  margin: 0 30px;
+}
+
+.main .form-input {
+  position: relative;
+}
+
+.main input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  border: 2px solid #4CAF50;
+  border-radius: 20px;
+  background: #fffAF7;
+  padding-left: 25px;
+  color: #1B5E20;
+}
+
+button {
+  border-radius: 20px;
+  border: 2px solid #1B5E20;
+  margin: 0 30px;
+  color: white;
+  background-color: #1B5E20;
+  justify-content: center;
+  display: inline-block;
+  font-size: 20px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  font-style: normal;
+  font-family: sans-serif;
+  width: 170px;
+  height: 50PX;
+  margin-left: 200px;
+
+
+}

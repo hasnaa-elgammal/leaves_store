@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Users\UpdateProfileRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,20 +13,20 @@ class UserController extends Controller
 {
     public function edit()
     {
-        return view('customer.edit_profile')->with('user',auth()->user());
+        return view('customer.edit_profile')->with('user', auth()->user());
     }
-    public function Update(UpdateProfileRequest $request,$user_id)
+
+    public function update(Request $request)
     {
-        $user=Auth::user();
+        $user = User::find(Auth::user()->id);
         $user->update([
-            'first_name'=>$request->first_name,
-            'last_name'=>$request->last_name,
-            'email'=>$request->email,
-            'mobile_number'=>$request->mobile_number,
-            'role'=>$request->role,
-            'password'=>Hash::make($request->password),
-            'updated_at' => now()
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+            'mobile_number' => $request->input('mobile_number'),
+            'password' => Hash::make($request->input('password')),
         ]);
-        return 'updated';
+
+        return redirect()->back()->with('message', 'Profile updated successfully');
     }
 }

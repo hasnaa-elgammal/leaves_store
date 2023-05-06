@@ -9,9 +9,13 @@ use App\Http\Controllers\Admin\DashbaordController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\PlantController as AdminPlantController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishListItemController;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +36,19 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{id}', [CategoryController::class, 'show']);
 Route::get('/plants', [ProductController::class, 'index']);
 Route::get('/plants/{id}', [ProductController::class, 'show']);
-Route::get('/profile', [UserController::class, 'edit']);
+
+Route::delete('/wishlist/{id}', [WishListItemController::class, 'destroy'])->name('wishlist.destroy');
+
+Route::delete('/cart/{id}', [CartItemController::class, 'destroy'])->name('cart.destroy');
+Route::put('/cart', [CartItemController::class, 'update'])->name('cart.update');
+
+Route::get('/edit_profile', [UserController::class, 'edit'])->name('edit_profile.edit');
+Route::put('/edit_profile', [UserController::class, 'update'])->name('edit_profile.update');
+
 Route::get('/thank-you', function () {
     return view('customer.thank_you');
 });
+
 
 
 Route::prefix('admin')->group(function () {
@@ -47,6 +60,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('/users', AdminUserController::class);
     Route::resource('/contacts', AdminContactController::class);
 });
+
+Route::get('/logout', [LogoutController::class, 'destroy'])->name('user.logout');
 
 
 

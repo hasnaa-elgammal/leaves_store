@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Requests\Users;
+use Illuminate\Support\Facades\Auth;
+
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,23 +15,20 @@ class UpdateProfileRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        // return Auth::check();
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
+    
     public function rules()
     {
         return [
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'email'=>'required',
-            'mobile_number'=>'required',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . auth()->user()->id,
+            'mobile_number' => 'required|string|max:20|unique:users,mobile_number,' . auth()->user()->id,
             'role'=>'required',
-            'password'=>'required',
+            'password' => 'nullable|string|min:8|confirmed',
         ];
     }
 }
