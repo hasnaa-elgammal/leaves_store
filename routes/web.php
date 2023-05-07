@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishListItemController;
@@ -31,24 +32,29 @@ use Illuminate\Support\Facades\View;
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{id}', [CategoryController::class, 'show']);
-Route::get('/plants', [ProductController::class, 'index']);
-Route::get('/plants/{id}', [ProductController::class, 'show']);
-
-Route::delete('/wishlist/{id}', [WishListItemController::class, 'destroy'])->name('wishlist.destroy');
-
+// Route::get('/plants', [ProductController::class, 'index'])->name('plants');
+Route::get('/categories/{cat_id}/plants/{id}', [ProductController::class, 'show']);
+Route::get('cart', [CartItemController::class, 'userCartItemsHome'])->name('cart.list');
+Route::post('cart', [CartItemController::class, 'store'])->name('cart.store');
 Route::delete('/cart/{id}', [CartItemController::class, 'destroy'])->name('cart.destroy');
 Route::put('/cart', [CartItemController::class, 'update'])->name('cart.update');
-
+Route::get('/contact', [ContactMessageController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact.store');
+Route::get('wishlist', [WishListItemController::class, 'userWishListItemsHome'])->name('wishlist.list');
+Route::post('wishlist', [WishListItemController::class, 'store'])->name('wishlist.store');
+Route::delete('/wishlist/{id}', [WishListItemController::class, 'destroy'])->name('wishlist.destroy');
 Route::get('/edit_profile', [UserController::class, 'edit'])->name('edit_profile.edit');
 Route::put('/edit_profile', [UserController::class, 'update'])->name('edit_profile.update');
-
 Route::get('/thank-you', function () {
     return view('customer.thank_you');
 });
-
+Route::prefix('/')->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    // Route::resource('/Homecategories', CategoryController::class);
+    Route::resource('/HomePlants', ProductController::class);
+});
 
 
 Route::prefix('admin')->group(function () {

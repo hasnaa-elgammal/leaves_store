@@ -389,13 +389,25 @@ input:nth-of-type(5):checked~main#carousel {
 
 .addTo-cart {
   width: 75%;
-  height: 30px;
+  height: 40px;
   background-color: #4CAF50;
   ;
-
+border-style: none;
 
   text-align: center;
   color: white;
+
+
+}
+.addTo-wishlist {
+  width: 75%;
+  height: 40px;
+  background-color: transparent;
+  ;
+  border-style: none;
+
+  text-align: center;
+  color: #1B5E20;
 
 
 }

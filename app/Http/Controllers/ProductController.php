@@ -26,13 +26,13 @@ class ProductController extends Controller
     // retrieve 6 plants home screen
     public function HomeScreenProducts()
     {
-        $products = Product::all()->random(6);
+        $products = Product::all()->random(2);
         return $products;
     }
 
 
     // retrieve plants details
-    public function show($id)
+    public function show($cat_id,$id)
     {
         $product = Product::findOrFail($id)
         ->join('categories', 'products.category_id', '=', 'categories.id')
@@ -42,9 +42,7 @@ class ProductController extends Controller
         ->where('products.id', $id)
         ->get();
 
-        return view('plant', [
-            'product' => $product
-        ]);
+        return view('customer.plant', compact('product'));
     }
 
 }

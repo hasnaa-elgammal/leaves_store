@@ -18,16 +18,26 @@ class CartItemController extends Controller
 
         return $cart_items;
     }
+    public function userCartItemsHome()
+    {
+        $cart_items = CartItem::select("cart_items.id as cartItem_id", "products.id", "name", "image", "quantity", "price")
+            ->join("products", "products.id", "=", "cart_items.product_id")
+            ->where("user_id", Auth::id())->get();
+
+        return back();
+    }
 
     public function store(CartItemRequest $request)
     {
+        
         $item = CartItem::create([
             "user_id" => Auth::id(),
             "product_id" => $request->product_id,
             "quantity" => $request->quantity
         ]);
-        //will be updated
-        return "done";
+        return redirect()->route('cart.list');
+    
+       
     }
 
     public function edit(CartItem $cartItem)

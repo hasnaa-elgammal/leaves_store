@@ -25,7 +25,7 @@ class WishListItemRequest extends FormRequest
     {
         return [
             "product_id"=>"required",
-            "quantity"=>"required|numeric",
+            
         ];
     }
 

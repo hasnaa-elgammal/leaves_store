@@ -16,11 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::select('categories.name')->get();
-
-        return view('customer.categories', [
-            'categories' => $categories
-        ]);
+        // $categories = Category::select('categories.name')->get();
+        $count=Category::count();
+        $categories = Category::all();
+        return view('customer.category', compact('categories','count'));
     }
 
     // retrieve all plants in specified category
@@ -32,7 +31,7 @@ class CategoryController extends Controller
             ->select('products.*')
             ->get();
 
-        return view('customer.category', [
+        return view('customer.specific_category', [
             'category' => $category,
             'products' => $products
         ]);
