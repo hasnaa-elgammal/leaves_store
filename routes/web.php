@@ -34,7 +34,7 @@ Auth::routes();
 
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{id}', [CategoryController::class, 'show']);
-// Route::get('/plants', [ProductController::class, 'index'])->name('plants');
+Route::get('/plants', [ProductController::class, 'index']);
 Route::get('/categories/{cat_id}/plants/{id}', [ProductController::class, 'show']);
 Route::get('cart', [CartItemController::class, 'userCartItemsHome'])->name('cart.list');
 Route::post('cart', [CartItemController::class, 'store'])->name('cart.store');
